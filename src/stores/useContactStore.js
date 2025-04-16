@@ -17,6 +17,13 @@ const useContactStore = create((set, get) => ({
   },
   //전체목록으로 돌아가기
   clearSearch: () => set({ isSearching: false }),
+
+  //삭제
+  deleteContact: (id) =>
+    set((state) => ({
+      contacts: state.contacts.filter((item) => item.id !== id),
+      searchResults: state.searchResults.filter((item) => item.id !== id),
+    })),
 }));
 
 export default useContactStore;
